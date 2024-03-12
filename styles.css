@@ -9,23 +9,22 @@ body {
     font-family: 'Poppins', sans-serif; /* Alterando para uma fonte mais moderna */
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #dee2e6;
 }
-
 .sidebar {
-    position: relative; /* Necessário para o posicionamento absoluto do filho */
+    position: fixed; /* Garante que a sidebar seja posicionada relativamente à viewport */
     height: 100%;
     width: 250px;
-    position: fixed;
     top: 0;
     left: 0;
     background-color: var(--sidebar-bg-color);
     padding-top: 20px;
-    transition: width 0.5s;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     border-right: 1px solid #dee2e6;
-    overflow: auto; /* Permite a rolagem dentro da sidebar se necessário */
+    overflow: auto;
+    z-index: 1000; /* Valor de z-index alto para garantir que esteja sobre outros elementos */
 }
+
 
 .sidebar a {
     padding: 15px;
@@ -110,11 +109,6 @@ body {
     }
 }
 
-#galleryFilters {
-    margin-bottom: 20px;
-    text-align: center;
-}
-
 .filter-btn {
     background-color: var(--primary-color);
     color: white;
@@ -139,6 +133,7 @@ body {
     height: auto;
     border-radius: 5px;
 }
+
 .intro-rectangle {
     width: 80%;
     margin: 20px auto;
@@ -160,18 +155,65 @@ body {
         opacity: 1;
     }
 }
-
 .animated-box {
     width: 200px;
     height: 100px;
-    background-color: var(--primary-color); /* Usa uma cor definida em :root */
+    background-color: var(--primary-color);
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     border-radius: 10px;
-    transition: transform 0.5s;
+    position: absolute; /* Posicionamento absoluto para centralizar */
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajuste fino para centralizar exatamente */
 }
+/* Banner com o título */
+.parallax-title-container {
+    width: 100%;
+    height: 300px; /* Ajusta a altura do banner conforme necessário */
+    background-image: url('imagem1.jpg'); /* Insira o caminho da sua imagem */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Importante se você precisar de posicionamento relativo para elementos internos */
+    margin-bottom: 30px; /* Espaço entre o banner e os botões de filtro */
+}
+
+.parallax-title {
+    color: white;
+    font-size: 48px; /* Ajusta o tamanho da fonte conforme desejado */
+    text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.5); /* Para melhorar a legibilidade */
+    padding-left: 250px; /* Puxa o texto para a direita */
+    box-sizing: border-box; /* Garante que o padding faça parte da largura total */
+}
+
+/* Ajustes para os botões de filtro para criar espaço entre eles e o banner */
+#galleryFilters {
+    display: flex;
+    justify-content: center; /* Centraliza os itens no container */
+    flex-wrap: wrap; /* Permite que os botões envolvam em múltiplas linhas se necessário */
+    padding-left: 250px; /* Ajusta conforme a largura da sua sidebar */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.filter-btn {
+    margin: 5px; /* Espaçamento entre os botões */
+    padding: 10px 20px; /* Padding interno para os botões */
+    /* Restante do seu CSS para os .filter-btn */
+}
+
+
+/* As demais regras CSS permanecem inalteradas */
+
+
 
 

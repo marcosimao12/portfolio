@@ -23,8 +23,11 @@
 
 </div>
 
-<div class="content-section" id="home">
-    <h1>Welcome to My Photography Portfolio</h1>
+<div class="parallax-title-container">
+    <h1 class="parallax-title">My Photography Portfolio</h1>
+</div>
+
+<div class="content-section" id="home">    
     <!-- Galeria de projetos dinâmica apenas na Home -->
     <div id="galleryFilters">
         <button class="filter-btn" data-filter="all">Todos</button>
@@ -32,18 +35,6 @@
         <button class="filter-btn" data-filter="urban">Urbano</button>
         <!-- Adicione mais botões de filtro conforme necessário -->
     </div>
-
-    <div id="home">
-        <div class="intro-rectangle">
-            <p>Olá, meu nome é [Marco Simão].<br>Bem-vindo ao meu portfólio!</p>
-        </div>
-        <!-- O restante do conteúdo da Home -->
-    </div>
-
-    <div id="animatedBox" class="animated-box">
-        <p>Olá, bem-vindo ao meu portfólio!</p>
-    </div>
-    
     
     <div id="galleryItems">
         <!-- Cada item da galeria terá um data-category correspondente ao filtro -->
@@ -109,7 +100,7 @@ function changeTheme(theme) {
         document.documentElement.style.setProperty('--hover-bg-color', '#555'); // Cor de hover mais escura
     } else {
         // Define as cores para o tema claro
-        document.documentElement.style.setProperty('--primary-color', '#4CAF50'); // Uma cor primária clara
+        document.documentElement.style.setProperty('--primary-color', '#222'); // Uma cor primária clara
         document.documentElement.style.setProperty('--sidebar-bg-color', '#eee'); // Fundo da sidebar claro
         document.documentElement.style.setProperty('--text-color', '#333'); // Texto escuro
         document.documentElement.style.setProperty('--hover-bg-color', '#ddd'); // Cor de hover claro

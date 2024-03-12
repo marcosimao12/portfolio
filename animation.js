@@ -1,13 +1,17 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Exemplo simples de animação
+/*document.addEventListener('DOMContentLoaded', () => {
     const box = document.getElementById('animatedBox');
-    let angle = 0;
+    let scale = 1;
+    let direction = 1;
 
-    function rotateBox() {
-        angle = (angle + 2) % 360;
-        box.style.transform = `rotate(${angle}deg)`;
-        requestAnimationFrame(rotateBox);
+    function pulseBox() {
+        if (scale >= 1.2) direction = -1; // Inverte a direção se muito grande
+        else if (scale <= 1) direction = 1; // Inverte a direção se muito pequeno
+
+        scale += direction * 0.01; // Ajusta a escala
+        box.style.transform = `scale(${scale})`; // Aplica a escala
+        
+        requestAnimationFrame(pulseBox); // Continua a animação
     }
 
-    rotateBox();
+    pulseBox();
 });
