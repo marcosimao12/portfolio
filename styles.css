@@ -139,3 +139,39 @@ body {
     height: auto;
     border-radius: 5px;
 }
+.intro-rectangle {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--primary-color); /* Utiliza a cor primária */
+    color: #fff; /* Texto em branco para contraste */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra leve */
+    animation: slideIn 1s ease-out forwards; /* Animação definida abaixo */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.animated-box {
+    width: 200px;
+    height: 100px;
+    background-color: var(--primary-color); /* Usa uma cor definida em :root */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.5s;
+}
+
+
