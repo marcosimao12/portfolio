@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio de Fotografia</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="sidebar">
+    <a class="active" href="#home">Home</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contacts">Contacts</a>
+    <a href="#events">Next Events</a>
+
+    <div class="theme-selector">
+        <button onclick="changeTheme('light')">Claro</button>
+        <button onclick="changeTheme('dark')">Escuro</button>
+    </div>
+
+</div>
+
+<div class="content-section" id="home">
+    <h1>Welcome to My Photography Portfolio</h1>
+    <!-- Galeria de projetos dinâmica apenas na Home -->
+    <div id="galleryFilters">
+        <button class="filter-btn" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="nature">Natureza</button>
+        <button class="filter-btn" data-filter="urban">Urbano</button>
+        <!-- Adicione mais botões de filtro conforme necessário -->
+    </div>
+
+    <div id="home">
+        <div class="intro-rectangle">
+            <p>Olá, meu nome é [Seu Nome].<br>Bem-vindo ao meu portfólio!</p>
+        </div>
+        <!-- O restante do conteúdo da Home -->
+    </div>
+    
+    <div id="galleryItems">
+        <!-- Cada item da galeria terá um data-category correspondente ao filtro -->
+        <div class="item" data-category="nature"><img src="path/to/image1.jpg" alt="Nature Image 1"></div>
+        <div class="item" data-category="urban"><img src="path/to/image2.jpg" alt="Urban Image 1"></div>
+        <!-- Continue adicionando itens à galeria -->
+    </div>
+</div>
+
+<div class="content-section" id="gallery" style="display:none;">
+    <!-- Conteúdo da Gallery aqui -->
+</div>
+
+<div class="content-section" id="contacts" style="display:none;">
+    <!-- Informações de Contacts aqui -->
+</div>
+
+<div class="content-section" id="events" style="display:none;">
+    <!-- Informações de Next Events aqui -->
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('.sidebar a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const contentId = this.getAttribute('href').slice(1);
+
+            // Atualiza a classe 'active' e exibe o conteúdo correspondente
+            document.querySelector('.sidebar a.active').classList.remove('active');
+            this.classList.add('active');
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(contentId).style.display = 'block';
+        });
+    });
+
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('.item');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.getAttribute('data-filter');
+
+            items.forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.style.display = 'inline-block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+
+function changeTheme(theme) {
+    if (theme === 'dark') {
+        // Define as cores para o tema escuro
+        document.documentElement.style.setProperty('--primary-color', '#333'); // Cor primária mais escura
+        document.documentElement.style.setProperty('--sidebar-bg-color', '#222'); // Fundo da sidebar mais escuro
+        document.documentElement.style.setProperty('--text-color', '#fff'); // Texto claro
+        document.documentElement.style.setProperty('--hover-bg-color', '#555'); // Cor de hover mais escura
+    } else {
+        // Define as cores para o tema claro
+        document.documentElement.style.setProperty('--primary-color', '#4CAF50'); // Uma cor primária clara
+        document.documentElement.style.setProperty('--sidebar-bg-color', '#eee'); // Fundo da sidebar claro
+        document.documentElement.style.setProperty('--text-color', '#333'); // Texto escuro
+        document.documentElement.style.setProperty('--hover-bg-color', '#ddd'); // Cor de hover claro
+    }
+}
+</script>
+
+</body>
+</html>

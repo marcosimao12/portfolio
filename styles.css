@@ -1,0 +1,141 @@
+:root {
+    --primary-color: #007bff; /* Cor primária ajustada para um azul mais vibrante */
+    --text-color: #FFF;
+    --sidebar-bg-color: #343a40; /* Atualizado para um cinza escuro mais sofisticado */
+    --hover-bg-color: #495057; /* Cor de hover atualizada para melhor contraste */
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Alterando para uma fonte mais moderna */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.sidebar {
+    position: relative; /* Necessário para o posicionamento absoluto do filho */
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--sidebar-bg-color);
+    padding-top: 20px;
+    transition: width 0.5s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-right: 1px solid #dee2e6;
+    overflow: auto; /* Permite a rolagem dentro da sidebar se necessário */
+}
+
+.sidebar a {
+    padding: 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: var(--text-color);
+    display: block;
+    transition: background-color 0.3s, padding-left 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: var(--hover-bg-color);
+    padding-left: 30px;
+}
+
+.sidebar a.active {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+.theme-selector {
+    position: absolute; /* Mantém no final da sidebar */
+    bottom: 20px; /* Alinha no final da sidebar */
+    left: 0;
+    width: 100%;
+    display: flex; /* Permite o layout lado a lado dos botões */
+    justify-content: space-around; /* Espaçamento entre os botões */
+    padding: 10px 0; /* Padding no topo e no fundo do seletor */
+}
+
+.theme-selector button {
+    flex: 1; /* Faz com que os botões compartilhem o espaço disponível igualmente */
+    background-color: var(--primary-color); /* Cor de fundo inicial */
+    color: var(--text-color);
+    padding: 10px 5px; /* Ajusta o padding para se adequar ao layout lado a lado */
+    margin: 0 10px; /* Margem lateral para separar os botões */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 4px; /* Arredondamento das bordas */
+}
+
+/* Botão Claro com uma cor específica */
+.theme-selector button:first-child {
+    background-color: #f8f9fa; /* Cor clara */
+    color: #343a40; /* Texto escuro para contraste */
+}
+
+/* Botão Escuro com uma cor específica */
+.theme-selector button:last-child {
+    background-color: #343a40; /* Cor escura */
+    color: #f8f9fa; /* Texto claro para contraste */
+}
+
+.theme-selector button:hover {
+    padding-left: 10px; /* Mantém o efeito de deslizamento sutil */
+}
+
+
+.content {
+    margin-left: 270px;
+    padding: 20px;
+    transition: margin-left 0.5s;
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100px;
+    }
+    
+    .sidebar a {
+        text-align: center;
+        font-size: 16px;
+        padding: 10px;
+    }
+    
+    .content {
+        margin-left: 120px;
+    }
+
+    .theme-selector {
+        padding: 0 10px; /* Ajuste para a sidebar mais estreita */
+    }
+}
+
+#galleryFilters {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.filter-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 0 5px;
+    transition: background-color 0.2s;
+}
+
+.filter-btn:hover {
+    background-color: #0056b3;
+}
+
+.item {
+    display: inline-block;
+    margin: 10px;
+}
+
+.item img {
+    width: 100px; 
+    height: auto;
+    border-radius: 5px;
+}
