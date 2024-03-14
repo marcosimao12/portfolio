@@ -1,6 +1,6 @@
 :root {
     --primary-color: #007bff; /* Cor primária ajustada para um azul mais vibrante */
-    --text-color: #FFF;
+    --text-color: #FFF;       
     --sidebar-bg-color: #343a40; /* Atualizado para um cinza escuro mais sofisticado */
     --hover-bg-color: #495057; /* Cor de hover atualizada para melhor contraste */
 }
@@ -12,7 +12,7 @@ body {
     background-color: #dee2e6;
 }
 .sidebar {
-    position: fixed; /* Garante que a sidebar seja posicionada relativamente à viewport */
+    position: fixed;
     height: 100%;
     width: 250px;
     top: 0;
@@ -22,9 +22,14 @@ body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     border-right: 1px solid #dee2e6;
     overflow: auto;
-    z-index: 1000; /* Valor de z-index alto para garantir que esteja sobre outros elementos */
+    z-index: 1000;
 }
 
+.content {
+    margin-left: 250px; /* Ajuste para o conteúdo principal não se sobrepor à barra lateral */
+    padding: 20px;
+    overflow: auto;
+}
 
 .sidebar a {
     padding: 15px;
@@ -116,13 +121,14 @@ body {
     cursor: pointer;
     padding: 10px 20px;
     margin: 0 5px;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, color 0.2s; /* Adicionando transições para o fundo e cor do texto */
+    border-radius: 5px; /* Arredondando as bordas */
 }
 
 .filter-btn:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Alterando a cor de fundo ao passar o mouse */
+    color: #fff; /* Alterando a cor do texto ao passar o mouse */
 }
-
 .item {
     display: inline-block;
     margin: 10px;
@@ -210,9 +216,23 @@ body {
     padding: 10px 20px; /* Padding interno para os botões */
     /* Restante do seu CSS para os .filter-btn */
 }
+#galleryItems {
+    display: flex; /* Exibe os itens da galeria em uma linha */
+    flex-wrap: wrap; /* Permite que os itens da galeria envolvam para uma nova linha conforme necessário */
+    padding-left: 15%;
+}
 
+.item {
+    flex: 0 0 30%; /* Cada item ocupará 25% da largura disponível, exibindo 4 itens por linha */
+    padding: 10px; /* Adicionando um espaçamento entre os itens */
+    box-sizing: border-box; /* Garante que o padding faça parte da largura total */
+}
 
-/* As demais regras CSS permanecem inalteradas */
+.item img {
+    width: 100%; /* Ajustando a largura da imagem para ocupar todo o espaço disponível */
+    height: auto;
+    border-radius: 5%;
+}
 
 
 
