@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backoffice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h2>Backoffice</h2>
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#upload">Upload de Imagens</a></li>
+                <li><a href="#settings">Configurações</a></li>
+            </ul>
+        </nav>
+        <main class="content">
+            <section id="dashboard">
+                <h3>Dashboard</h3>
+                <p>Aqui você pode visualizar as estatísticas do site.</p>
+            </section>
+            <section id="upload">
+                <h3>Upload de Imagens</h3>
+                <form action="/upload" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="image" required>
+                    <button type="submit">Upload</button>
+                </form>
+            </section>
+            <section id="settings">
+                <h3>Configurações</h3>
+                <p>Aqui você pode alterar as configurações do site.</p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
