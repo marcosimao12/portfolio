@@ -23,17 +23,18 @@ body {
 }
     
 .sidebar {
-    position: fixed;
-    height: 100%;
     width: 250px;
+    position: fixed;
     top: 0;
-    left: 0;
-    background-color: var(--sidebar-bg-color);
-    padding-top: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    border-right: 1px solid #dee2e6;
-    overflow: auto;
+    left: -250px; /* Esconde a sidebar fora da tela */
+    height: 100%;
     z-index: 1000;
+    transition: left 0.3s;
+}
+
+/* Classe para quando a sidebar estiver visível */
+.sidebar.open {
+    left: 0;
 }
 
 .sidebar a {
@@ -50,29 +51,6 @@ body {
     color: #ffffff;
     padding-left: 30px; /* Ajuste para efeito ao passar o mouse e quando ativo */
 }
-
-.theme-selector {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-}
-
-.theme-selector button {
-    flex: 1;
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    padding: 10px 5px;
-    margin: 0 10px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 4px;
-}
-
 .content {
     margin-left: 250px; /* Ajuste para o conteúdo principal não se sobrepor à barra lateral */
     padding: 20px;
@@ -187,4 +165,102 @@ body {
     .parallax-title {
         font-size: 24px; /* Reduz o tamanho da fonte para adequação em telas menores */
     }
+}
+
+.theme-switch-wrapper {
+    position: absolute;
+    margin: 10px;
+    bottom: 10px;
+    width: 100%;
+}
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.hamburger-menu button {
+    position: fixed;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+    top: 20px;
+    left: 20px;
+    z-index: 2000; /* Certifique-se de que está acima de outros elementos */
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background-color: blue;
+    transition: 0.4s;
+}
+
+/* Animação para o ícone quando o menu é aberto */
+.change .bar1 {transform: rotate(-45deg) translate(-5px, 6px);}
+.change .bar2 {opacity: 0;}
+.change .bar3 {transform: rotate(45deg) translate(-5px, -6px);}
+
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Esconde a sidebar fora da tela */
+    height: 100%;
+    transition: left 0.3s, background-color 0.3s; /* Adiciona transição à cor de fundo */
+    z-index: 1000;
+}
+
+.sidebar.open {
+    left: 0;
+    background-color: #f4f4f4; /* Ou qualquer outra cor ou imagem de fundo */
 }

@@ -1,13 +1,16 @@
 
-function changeTheme(theme) {
-    const bodyClassList = document.body.classList; // Obtém a lista de classes do elemento <body>
-    if (theme === 'dark') { // Se o tema for escuro
-        bodyClassList.add("dark-theme");
+document.getElementById('checkbox').addEventListener('change', function(event) {
+    if(event.target.checked) {
+        document.body.classList.add('dark-theme');
     } else {
-        bodyClassList.remove("dark-theme");
+        document.body.classList.remove('dark-theme');
     }
-    localStorage.setItem('theme', theme); // Salva a preferência de tema no localStorage
+});
+
+function toggleSidebar() {
+    document.querySelector('.sidebar').classList.toggle('open');
 }
+
 
 function applySavedTheme() {
     const savedTheme = localStorage.getItem('theme') || 'light'; // Obtém o tema salvo no localStorage ou usa o tema padrão 'light'
