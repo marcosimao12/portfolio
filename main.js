@@ -7,8 +7,19 @@ document.getElementById('checkbox').addEventListener('change', function(event) {
     }
 });
 
+
+
 function toggleSidebar() {
-    document.querySelector('.sidebar').classList.toggle('open');
+    var sidebar = document.querySelector('.sidebar');
+    var hamburger = document.getElementById('hamburger-icon');
+
+    sidebar.classList.toggle('open');
+
+    if (sidebar.classList.contains('open')) {
+        hamburger.style.display = "none"; // Esconde o ícone do hambúrguer
+    } else {
+        hamburger.style.display = "block"; // Mostra o ícone do hambúrguer
+    }
 }
 
 
