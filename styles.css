@@ -8,8 +8,8 @@
 
 body.dark-theme {
     /* Variáveis para o tema escuro */
-    --primary-color: #ffffff; /* Cor de fundo principal */
-    --text-color: #fff; /* Cor do texto */
+    --primary-color: #000000; /* Cor de fundo principal */
+    --text-color: #000000; /* Cor do texto */
     --sidebar-bg-color: #110f0f; /* Cor de fundo da sidebar */
     --hover-bg-color: #212193; /* Cor de fundo ao passar o mouse */
 }
@@ -116,7 +116,7 @@ body {
     margin: 5px; /* Espaçamento entre os botões */
     padding: 10px 20px; /* Padding interno para os botões */
     /* background-color: var(--primary-color); */
-    background-color: #000000;
+    background-color: #212193;
     color: rgb(0, 0, 0);
     border: none;
     cursor: pointer;
@@ -128,7 +128,7 @@ body {
 #galleryItems {
     display: flex; /* Exibe os itens da galeria em uma linha */
     flex-wrap: wrap; /* Permite que os itens da galeria envolvam para uma nova linha conforme necessário */
-    padding-left: 15%;
+    padding-left: 9%;
 }
 
 .item {
@@ -171,25 +171,25 @@ body {
     }
 }
 
-.theme-switch-wrapper {
+.theme-switch-wrapper { /* Posiciona o switch de tema no canto inferior direito */
     position: absolute;
     margin: 10px;
     bottom: 10px;
     width: 100%;
 }
 
-.theme-switch {
-    position: relative;
-    display: inline-block;
+.theme-switch { /* Estiliza o switch de tema */
+    position: relative; /* Permite posicionar o slider */
+    display: inline-block; /* Permite que o switch seja exibido em linha */
     width: 60px;
     height: 34px;
 }
 
-.theme-switch input {
+.theme-switch input { /* Esconde o input padrão */
     display: none;
 }
 
-.slider {
+.slider { /* Estiliza o slider */
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -201,7 +201,7 @@ body {
     border-radius: 34px;
 }
 
-.slider:before {
+.slider:before {    /* Estiliza o slider quando está ativo */
     position: absolute;
     content: "";
     height: 26px;
@@ -213,23 +213,23 @@ body {
     border-radius: 50%;
 }
 
-input:checked + .slider {
-    background-color: #2196F3;
+input:checked + .slider { /* Altera a cor de fundo do slider quando o input está marcado */
+    background-color: #2100f8;
 }
 
-input:checked + .slider:before {
+input:checked + .slider:before { /* Move o slider para a direita quando o input está marcado */
     transform: translateX(26px);
 }
 
-.slider.round {
+.slider.round { /* Estiliza o slider redondo */
     border-radius: 34px;
 }
 
-.slider.round:before {
+.slider.round:before { /* Estiliza o slider redondo quando está ativo */
     border-radius: 50%;
 }
 
-.hamburger-menu button {
+.hamburger-menu button { /* Estiliza o ícone do menu hamburguer */
     position: fixed;
     background: none;
     border: none;
@@ -262,4 +262,47 @@ input:checked + .slider:before {
 
 .sidebar.open + .hamburger-menu button {
     display: none;
+}
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2000; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
 }
