@@ -1,13 +1,27 @@
 
-function changeTheme(theme) {
-    const bodyClassList = document.body.classList; // Obtém a lista de classes do elemento <body>
-    if (theme === 'dark') { // Se o tema for escuro
-        bodyClassList.add("dark-theme");
-    } else {
-        bodyClassList.remove("dark-theme");
+document.getElementById('checkbox').addEventListener('change', function(event) { // Adiciona um evento de mudança ao checkbox
+    if(event.target.checked) { // Verifica se o checkbox está marcado
+        document.body.classList.add('dark-theme'); // Adiciona a classe 'dark-theme' ao corpo do documento
+    } else { // Se o checkbox não estiver marcado
+        document.body.classList.remove('dark-theme'); // Remove a classe 'dark-theme' do corpo do documento
     }
-    localStorage.setItem('theme', theme); // Salva a preferência de tema no localStorage
+});
+
+
+
+function toggleSidebar() { // Função para alternar a barra lateral
+    var sidebar = document.querySelector('.sidebar'); // Seleciona a barra lateral
+    var hamburger = document.getElementById('hamburger-icon'); // Seleciona o ícone do hambúrguer
+
+    sidebar.classList.toggle('open'); // Adiciona ou remove a classe 'open' da barra lateral
+
+    if (sidebar.classList.contains('open')) { // Verifica se a barra lateral está aberta
+        hamburger.style.display = "none"; // Esconde o ícone do hambúrguer
+    } else {
+        hamburger.style.display = "block"; // Mostra o ícone do hambúrguer
+    }
 }
+
 
 function applySavedTheme() {
     const savedTheme = localStorage.getItem('theme') || 'light'; // Obtém o tema salvo no localStorage ou usa o tema padrão 'light'
@@ -66,3 +80,25 @@ document.addEventListener("DOMContentLoaded", function() { // Aguarda o carregam
 });
 
 
+// Get the modal
+var modal = document.getElementById("modal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.querySelectorAll(".item img");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.forEach(function(image) {
+    image.onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+    }
+});
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+    modal.style.display = "none";
+}

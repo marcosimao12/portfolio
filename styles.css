@@ -8,10 +8,10 @@
 
 body.dark-theme {
     /* Variáveis para o tema escuro */
-    --primary-color: #333; /* Exemplo: Cinza mais Escuro */
-    --text-color: #fff; /* Exemplo: Branco */
-    --sidebar-bg-color: #222; /* Exemplo: Quase Preto */
-    --hover-bg-color: #555; /* Exemplo: Cinza Médio */
+    --primary-color: #000000; /* Cor de fundo principal */
+    --text-color: #000000; /* Cor do texto */
+    --sidebar-bg-color: #110f0f; /* Cor de fundo da sidebar */
+    --hover-bg-color: #212193; /* Cor de fundo ao passar o mouse */
 }
 
 
@@ -19,21 +19,25 @@ body {
     font-family: 'Poppins', sans-serif; /* Alterando para uma fonte mais moderna */
     margin: 0;
     padding: 0;
-    background-color: #dee2e6;
+    background-color: var(--primary-color);
+    color: var(--text-color);
 }
 
 .sidebar {
-    position: fixed;
-    height: 100%;
+    background-color: var(--sidebar-bg-color); /* Usa a variável para a cor de fundo */
+    color: var(--text-color); /* Usa a variável para a cor do texto */
     width: 250px;
+    position: fixed;
     top: 0;
-    left: 0;
-    background-color: var(--sidebar-bg-color);
-    padding-top: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    border-right: 1px solid #dee2e6;
-    overflow: auto;
+    left: -250px; /* Esconde a sidebar fora da tela */
+    height: 100%;
+    transition: left 0.3s, background-color 0.3s; /* Adiciona transição à cor de fundo */
     z-index: 1000;
+}
+
+/* Classe para quando a sidebar estiver visível */
+.sidebar.open {
+    left: 0;
 }
 
 .sidebar a {
@@ -50,29 +54,6 @@ body {
     color: #ffffff;
     padding-left: 30px; /* Ajuste para efeito ao passar o mouse e quando ativo */
 }
-
-.theme-selector {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-}
-
-.theme-selector button {
-    flex: 1;
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    padding: 10px 5px;
-    margin: 0 10px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 4px;
-}
-
 .content {
     margin-left: 250px; /* Ajuste para o conteúdo principal não se sobrepor à barra lateral */
     padding: 20px;
@@ -82,26 +63,42 @@ body {
 /* Banner com o título */
 .parallax-title-container {
     width: 100%;
-    height: 300px; /* Ajusta a altura do banner conforme necessário */
-    /*background-image: url('imagem1.jpg');  Insira o caminho da sua imagem */
-    background-color: #000;
-    background-attachment: fixed;
+    height: 400px; /* Ajuste conforme necessário */ 
+    background-color: #000; /* Cor de fallback */
+    background-image: url('banner2.png'); /* Insira o caminho da sua imagem */
+    /* background-attachment: fixed; */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; /* Importante se você precisar de posicionamento relativo para elementos internos */
-    margin-bottom: 30px; /* Espaço entre o banner e os botões de filtro */
+    position: relative;
+    margin-bottom: 30px;
+    /* Gradiente sobre a imagem */
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7), url('banner2.png'));
 }
 
 .parallax-title {
     color: white;
-    font-size: 48px; /* Ajusta o tamanho da fonte conforme desejado */
-    text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.5); /* Para melhorar a legibilidade */
-    padding-left: 250px; /* Puxa o texto para a direita */
-    box-sizing: border-box; /* Garante que o padding faça parte da largura total */
+    font-size: 48px;
+    text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.5); /* Melhora a legibilidade */
+    /* padding-left: 250px; */
+    box-sizing: border-box;
+    /* Animação de entrada */
+    animation: slideIn 1.5s ease-out;
+}
+
+/* Animação de entrada para o título */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 /* Ajustes para os botões de filtro para criar espaço entre eles e o banner */
@@ -109,7 +106,7 @@ body {
     display: flex;
     justify-content: center; /* Centraliza os itens no container */
     flex-wrap: wrap; /* Permite que os botões envolvam em múltiplas linhas se necessário */
-    padding-left: 250px; /* Ajusta conforme a largura da sua sidebar */
+    /* padding-left: 250px; Ajusta conforme a largura da sua sidebar */
     margin-top: 20px;
     margin-bottom: 20px;
     box-sizing: border-box;
@@ -118,11 +115,12 @@ body {
 .filter-btn {
     margin: 5px; /* Espaçamento entre os botões */
     padding: 10px 20px; /* Padding interno para os botões */
-    background-color: var(--primary-color);
+    /* background-color: var(--primary-color); */
+    background-color: #212193;
     color: rgb(0, 0, 0);
     border: none;
     cursor: pointer;
-    color: var(--text-color);
+    color: white;
     transition: background-color 0.2s, color 0.2s;
     border-radius: 5px; /* Arredondando as bordas */
 }
@@ -130,7 +128,7 @@ body {
 #galleryItems {
     display: flex; /* Exibe os itens da galeria em uma linha */
     flex-wrap: wrap; /* Permite que os itens da galeria envolvam para uma nova linha conforme necessário */
-    padding-left: 15%;
+    padding-left: 9%;
 }
 
 .item {
@@ -171,4 +169,140 @@ body {
     .parallax-title {
         font-size: 24px; /* Reduz o tamanho da fonte para adequação em telas menores */
     }
+}
+
+.theme-switch-wrapper { /* Posiciona o switch de tema no canto inferior direito */
+    position: absolute;
+    margin: 10px;
+    bottom: 10px;
+    width: 100%;
+}
+
+.theme-switch { /* Estiliza o switch de tema */
+    position: relative; /* Permite posicionar o slider */
+    display: inline-block; /* Permite que o switch seja exibido em linha */
+    width: 60px;
+    height: 34px;
+}
+
+.theme-switch input { /* Esconde o input padrão */
+    display: none;
+}
+
+.slider { /* Estiliza o slider */
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {    /* Estiliza o slider quando está ativo */
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider { /* Altera a cor de fundo do slider quando o input está marcado */
+    background-color: #2100f8;
+}
+
+input:checked + .slider:before { /* Move o slider para a direita quando o input está marcado */
+    transform: translateX(26px);
+}
+
+.slider.round { /* Estiliza o slider redondo */
+    border-radius: 34px;
+}
+
+.slider.round:before { /* Estiliza o slider redondo quando está ativo */
+    border-radius: 50%;
+}
+
+.hamburger-menu button { /* Estiliza o ícone do menu hamburguer */
+    position: fixed;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+    top: 20px;
+    left: 20px;
+    z-index: 2000; /* Certifique-se de que está acima de outros elementos */
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background-color: blue;
+    transition: 0.4s;
+}
+
+/* Animação para o ícone quando o menu é aberto */
+.change .bar1 {transform: rotate(-45deg) translate(-5px, 6px);}
+.change .bar2 {opacity: 0;}
+.change .bar3 {transform: rotate(45deg) translate(-5px, -6px);}
+
+
+.sidebar.open {
+    left: 0;
+    background-color: #f4f4f4; /* Ou qualquer outra cor ou imagem de fundo */
+}
+
+.sidebar.open + .hamburger-menu button {
+    display: none;
+}
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2000; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
 }
