@@ -102,3 +102,32 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() { 
     modal.style.display = "none";
 }
+
+window.onscroll = function() {showContactsOnScroll()};
+
+function showContactsOnScroll() {
+    // Verifica se o usuário chegou ao final da página
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        // Mostra a seção de contatos
+        document.getElementById("contacts-section").style.display = "block";
+    }
+}
+
+function showContacts() {
+    document.getElementById("contacts-section").style.display = "block";
+    // Opção para animar o scroll até a seção de contatos
+    document.getElementById("contacts-section").scrollIntoView({behavior: 'smooth'});
+}
+
+document.querySelectorAll('.sidebar a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            e.preventDefault(); // Impede o comportamento padrão de navegação
+            // Se o target estiver oculto, exiba-o
+            target.style.display = 'block';
+            // Rola suavemente até o target
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});

@@ -6,6 +6,7 @@
     <title>Home - Meu Portfólio de Fotografia</title>
     <link rel="stylesheet" href="./styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="./main.js" defer></script>
 </head>
 <body>
@@ -20,7 +21,7 @@
 <div class="sidebar">
     <a class="active" href="index.html">Home</a> 
     <a href="gallery.html">Gallery</a> 
-    <a href="contacts.html">Contacts</a>
+    <a href="#contacts-section" onclick="showContacts()">Contacts</a>
     <a href="events.html">Next Events</a>
 
     <div class="theme-switch-wrapper">
@@ -52,14 +53,37 @@
         <div class="item" data-category="urban"><img src="rovanpera-does-what-he-doesays.png" alt="Urban Image 1"></div>
         <div class="item" data-category="urban"><img src="rovanpera-does-what-he-doesays.png" alt="Urban Image 1"></div>
         <div class="item" data-category="urban"><img src="rovanpera-does-what-he-doesays.png" alt="Urban Image 1"></div>
+        <div class="item" data-category="urban"><img src="rovanpera-does-what-he-doesays.png" alt="Urban Image 1"></div>
     </div>
-    
+
     <div id="modal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="img01">
         <div id="caption"></div>
     </div>
     
+    <div class="contact-section" id="contacts-section">
+        <div class="contact-info">
+            <h2>Contate-nos</h2>
+            <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+            <form action="URL_PARA_ONDE_O_FORM_DEVE_SER_ENVIADO" method="POST" class="contact-form">
+                <input type="email" id="email" name="email" placeholder="Enter a valid email address" required>
+                <input type="text" id="name" name="name" placeholder="Enter your Name" required>
+                <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+            <div class="social-links">
+                <!-- Ícones das redes sociais com Font Awesome -->
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="contact-image">
+            <img src="banner.jpg" alt="Descrição da Imagem">
+        </div>
+    </div>
+      
 </div>
 </body>
 </html>
