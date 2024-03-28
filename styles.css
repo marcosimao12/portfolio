@@ -313,12 +313,13 @@ input:checked + .slider:before { /* Move o slider para a direita quando o input 
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px;
+    padding: 20px;
 }
 
 .contact-info {
     flex: 1;
     padding-right: 50px;
+    padding-left: 3%;
 }
 
 .contact-image {
@@ -326,14 +327,16 @@ input:checked + .slider:before { /* Move o slider para a direita quando o input 
 }
 
 .contact-info h2 {
-    font-size: 24px;
+    font-size: 34px;
     margin-bottom: 20px;
+    padding-left: 0%;
 }
 
 .contact-info p {
     font-size: 16px;
     line-height: 1.5;
     margin-bottom: 10px;
+    padding-left: 2%;
 }
 
 .contact-image img {

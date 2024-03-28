@@ -5,19 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galeria - Meu Portfólio de Fotografia</title>
     <link rel="stylesheet" href="./styles.css">
-    <script src="./main.js" defer></script>
+    <script src="./gallery.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="sidebar">
+    <div class="hamburger-menu">
+        <button id="hamburger-icon" onclick="toggleSidebar()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <div class="sidebar">
     <a href="index.html">Home</a>
     <a class="active" href="gallery.html">Gallery</a>
-    <a href="contacts.html">Contacts</a>
+    <a href="#contacts-section" onclick="showContacts()">Contacts</a>
     <a href="events.html">Next Events</a>
 
-    <div class="theme-selector">
-        <button onclick="changeTheme('light')">Claro</button>
-        <button onclick="changeTheme('dark')">Escuro</button>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+        </label>
+        <em>Modo Escuro</em>
     </div>
 </div>
 
@@ -29,15 +40,47 @@
     <!-- Filtros para a galeria, se necessário -->
     <div id="galleryFilters">
         <button class="filter-btn" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="nature2">Natureza</button>
-        <button class="filter-btn" data-filter="urban2">Urbano</button>
+        <button class="filter-btn" data-filter="nature">Natureza</button>
+        <button class="filter-btn" data-filter="urban">Urbano</button>
     </div>
     
     <div id="galleryItems">
-        <!-- Exemplos de itens da galeria. Certifique-se de ajustar conforme seus projetos e imagens -->
-        <div class="item" data-category="nature2"><img src="rovanpera-does-what-he-doesays.png" alt="Nature Image 1"></div>
-        <div class="item" data-category="urban2"><img src="rovanpera-does-what-he-doesays.png" alt="Urban Image 2"></div>
+        <!-- Exemplos de itens da galeria, ajuste conforme seus projetos -->
+        <div class="item" data-category="nature"><img src="rovanpera-does-what-he-doesays.png" alt="Nature Image 1"></div>
+        <div class="item" data-category="urban"><img src="rovanpera-does-what-he-doesays.png" alt="Urban Image 1"></div>
+        <div class="item" data-category="urban"><img src="rovanpera-does-what-he-doesays.png" alt="Urban Image 1"></div>
+        <div class="item" data-category="urban"><img src="rovanpera-does-what-he-doesays.png" alt="Urban Image 1"></div>
+        <div class="item" data-category="urban"><img src="rovanpera-does-what-he-doesays.png" alt="Urban Image 1"></div>
+        <div class="item" data-category="urban"><img src="rovanpera-does-what-he-doesays.png" alt="Urban Image 1"></div>
     </div>
+
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+    <div class="contact-section" id="contacts-section" style="box-sizing: border-box;"></div>
+    <div class="contact-info">
+        <h2>Contate-nos</h2>
+        <p>Sample text. Click to select the text box.</p>
+        <form action="URL_PARA_ONDE_O_FORM_DEVE_SER_ENVIADO" method="POST" class="contact-form">
+            <input type="email"   id="email"   name="email"   placeholder="Enter a valid email address" required>
+            <input type="text"    id="name"    name="name"    placeholder="Enter your Name"             required>
+            <input type="message" id="message" name="message" placeholder="Enter your message"          required>
+            <button type="submit">Enviar</button>
+        </form>
+        <div class="social-links">
+            <!-- Ícones das redes sociais com Font Awesome -->
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <div class="contact-image">
+        <img src="banner.jpg" alt="Foto rally portugal">
+    </div>
+</div>
+  
 </div>
 </body>
 </html>
