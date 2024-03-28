@@ -1,19 +1,22 @@
 :root {
     /* Variáveis para o tema claro */
-    --primary-color: #f5f5f6; /* Exemplo: Azul */
-    --text-color: #000; /* Exemplo: Preto */
-    --sidebar-bg-color: #5f6363; /* Exemplo: Cinza Escuro */
-    --hover-bg-color: #1b1515; /* Exemplo: Cinza mais Escuro */
+    --primary-color: #f5f5f6; /* Cor de fundo claro */
+    --text-color: #000; /* Texto preto */
+    --sidebar-bg-color: #5f6363; /* Fundo da barra lateral cinza escuro */
+    --hover-bg-color: #1b1515; /* Fundo do item ao passar o mouse */
+    --button-bg-color: #000; /* Fundo do botão */
+    --button-text-color: #fff; /* Texto do botão */
 }
 
 body.dark-theme {
     /* Variáveis para o tema escuro */
-    --primary-color: #000000; /* Cor de fundo principal */
-    --text-color: #000000; /* Cor do texto */
-    --sidebar-bg-color: #110f0f; /* Cor de fundo da sidebar */
-    --hover-bg-color: #212193; /* Cor de fundo ao passar o mouse */
+    --primary-color: #000; /* Cor de fundo escura */
+    --text-color: #fff; /* Texto branco */
+    --sidebar-bg-color: #110f0f; /* Fundo da barra lateral ainda mais escuro */
+    --hover-bg-color: #212193; /* Fundo do item ao passar o mouse no modo escuro */
+    --button-bg-color: #333; /* Fundo do botão no modo escuro */
+    --button-text-color: #ccc; /* Texto do botão no modo escuro */
 }
-
 
 body {
     font-family: 'Poppins', sans-serif; /* Alterando para uma fonte mais moderna */
@@ -279,14 +282,14 @@ input:checked + .slider:before { /* Move o slider para a direita quando o input 
     background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
 
-.modal-content {
+.modal-content { /* Estiliza o conteúdo do modal */
     margin: auto;
     display: block;
     width: 80%;
     max-width: 700px;
 }
 
-#caption {
+#caption { /* Estiliza a legenda da imagem */
     margin: auto;
     display: block;
     width: 80%;
@@ -297,7 +300,7 @@ input:checked + .slider:before { /* Move o slider para a direita quando o input 
     height: 150px;
 }
 
-.close {
+.close { /* Estiliza o botão de fechar */
     position: absolute;
     top: 15px;
     right: 35px;
@@ -305,4 +308,39 @@ input:checked + .slider:before { /* Move o slider para a direita quando o input 
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
+}
+.contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.contact-info {
+    flex: 1;
+    padding-right: 50px;
+    padding-left: 3%;
+}
+
+.contact-image {
+    flex: 1;
+}
+
+.contact-info h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+    padding-left: 0%;
+}
+
+.contact-info p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    padding-left: 2%;
+}
+
+.contact-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
 }
